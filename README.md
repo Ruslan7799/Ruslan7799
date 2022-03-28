@@ -1,10 +1,48 @@
-- 👋 Hi, I’m @Ruslan7799
-- 👀 I’m interested in ...
-- 🌱 I’m currently learning ...
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me ...
+<template>
+     <div>
+       <span v-text="msg"> </span> <br/>
+       <span v-html ="title"> </span>     
+    </div>
 
-<!---
-Ruslan7799/Ruslan7799 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+    <div v-if ="isAdmin">
+      <h1>Assalomu alaykum, Hurmatli Admistrator</h1>
+    </div>
+     
+     <div v-else>
+      <h1>Assalomu alaykum, Hurmatli Foydalanuvchi</h1>
+    </div>
+
+
+    <div>
+      <p v-if="word === 'car' "> Mashina </p>
+      <p v-else-if="word === 'Book' "> Kitob </p>
+      <p v-else-if="word === 'animal' "> Hayvon </p>
+      <p v-else> Bunday soz mavjud emas </p>
+      <p v-show = "isBool">Men Ko'rinyabman</p>
+    </div>
+
+    <div>
+      <p v-for ="i in 10">Salom</p>
+    </div>
+</template>
+
+<script>
+   export default {
+     name :'App' ,
+     data() {
+         return {
+           msg : "Tezkor Xabar" ,
+           title : "<h1>Salom Dunyo</h1>",
+           isAdmin :true ,
+           word : "" ,
+           isBool : false,
+         }
+      }
+    }
+  
+</script>
+
+<style>
+
+</style>
+
