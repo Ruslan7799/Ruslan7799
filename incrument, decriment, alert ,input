@@ -1,0 +1,51 @@
+<template>
+  <div>
+    <h1> Username : {{ username }} </h1>
+    <button @mouseover = "changeUsername">Change Username</button>
+  </div>
+
+  <div>
+    <h1>Counter : {{counter}}</h1>
+    <button @click = "incrument">+</button>
+    <button @click = "decriment">-</button>
+  </div>
+
+  <div>
+     <input type ="text" placeholder="Enter Text" v-model="firstname" > 
+     <button @click ="showName">Submit</button>  
+  </div>
+</template>
+
+<script>
+   export default {
+     name :'App' ,
+     data() {
+         return {
+           username : "Ruslan",
+           counter : 0 ,
+           firstname :""
+         }
+      },
+      methods : {
+        changeUsername() {
+          this.username = "Ruslan Masharipov" 
+        },
+        incrument() {
+          this.counter++
+          if(this.counter === 5) { 
+            alert("Besh")
+          }
+        },
+        decriment() {
+          this.counter--
+        } ,
+        showName() {
+          console.log(this.firstname)
+        }
+      }
+    }
+</script>
+
+<style>
+
+</style>
