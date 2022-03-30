@@ -1,0 +1,63 @@
+<template>
+  <div class="flex justify-center text-center items-center min-h-screen">
+    <div class="flex-col justify-center items-center">
+      <div class="relative mb-8">
+        <div class="absolute left-1/2 -top-2 bg-white rounded-full px-4 py1 text-lg transform-tranlate-x-1/2">{{ gender }}</div>
+        <img class="w-64 h-64 rounded-full border-8 " v-bind:class="chekGender"  v-bind:src="img" alt="Eric">  
+      </div>
+      <div class="text-center space-y-1">
+        <h1 class="text-4xl font-bold">Salom , Mening ismim {{fullName}}</h1>
+        <p class="text-lg text-gray-500">{{email}}</p>
+        <p class="text-lg text-gray-500">{{phone_number}}</p>
+      </div>
+      <button class="bg-black text-white px-6 py-2 rounded fond-bold mt-6" @click="randomUser">Tasodifiy inson</button>
+    </div>
+  </div>
+</template>
+
+<script>
+   export default {
+     name :'App' ,
+     data() {
+         return {
+           firstname : "Anjelina" ,
+           lastname : "Wood" ,
+           email : "anjelina@gmail.com" ,
+           gender : "Female" ,
+           phone_number : "+9981234567 ",
+           img : "https://randomuser.me/api/portraits/women/95.jpg" 
+            }
+          },
+          methods : {
+            async randomUser() {
+              const res = await fetch(input,"https://randomuser.me/api/");
+              const { results } = await res.json();
+              const user = results[0]
+              this.firstname = user.name.first 
+              this.lastname =user.name.lastname
+              this.email = user.email
+              this.gender = user.gender
+              this.phone_number = user.phone
+              this.img = user.picture.large
+            }
+          },
+          computed: {
+            chekGender() {
+              return {
+                'border-green-500': this.gender ==='male',
+                'border-pink-500': this.gender ==='female'
+              }
+            } ,
+            fullName() {
+              return this.firstname + "" +this.lastname 
+               }
+             }
+         }
+</script>
+
+<style>
+ img {
+   border-radius:50% ;
+   border :5px solid rgb(238, 153, 168) ;
+ }
+</style>
