@@ -30,7 +30,7 @@
           },
           methods : {
             async randomUser() {
-              const res = await fetch(input,"https://randomuser.me/api/");
+              const res = await fetch("https://randomuser.me/api/");
               const { results } = await res.json();
               const user = results[0]
               this.firstname = user.name.first 
