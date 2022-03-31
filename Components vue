@@ -1,0 +1,42 @@
+//////////////////////////////
+App.vue
+
+<template>
+ <hello />
+</template>
+
+<script>
+import hello from './components/hello.vue';
+
+export default {
+  name: 'App',
+  components : {
+     hello
+  }
+  }
+
+</script>
+
+<style>
+
+</style>
+
+
+
+////////////////////////////////////////////////////////
+hello.vue
+
+<template>
+    <h1>Ruslan</h1>
+</template>
+
+<script>
+
+</script>
+ 
+ <style scoped>
+   h1 {
+       background-color: black;
+       color:white;
+   }
+ </style>
