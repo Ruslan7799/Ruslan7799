@@ -1,0 +1,41 @@
+<template>
+    <BlogPost title ="Learn Javascript" like = "90" hello ="Learn vue" />
+</template>
+
+<script>
+import BlogPost from "./components/BlogPost";
+
+
+export default { 
+  name: 'App',
+  components :{
+    BlogPost
+  }
+  }
+</script>
+
+<style>
+
+</style>
+
+
+/////////////////////////////////////////////////////
+BlogPost.vue
+
+<template>
+       <h1>{{title}} </h1>
+       <p>like :{{like}} </p> 
+       <p>like :{{hello}} </p> 
+
+</template>
+
+<script>
+export default {
+  name :"BlogPost" ,
+  props: [ "title" ,"like" ,"hello"] 
+}
+</script>
+
+<style>
+
+</style>
