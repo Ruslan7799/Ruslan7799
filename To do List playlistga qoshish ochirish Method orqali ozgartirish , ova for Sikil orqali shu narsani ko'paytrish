@@ -1,0 +1,68 @@
+<template>
+   <div class="w-[600px] mx-auto mx-6 mt-6 ">
+      <h1 class="mb-4">To Do List <span class="text-gray-300 text-lg">({{allTask}})</span></h1>
+      <form class="flex">
+        <input 
+        v-model="newTask"
+        class="px-4 py-2 border w-full outline-none" 
+        type="text" placeholder="Task Kiriting">
+        <button 
+        @click.prevent="addTask()"
+        class="px-4 py-2 bg-black text-white">Qo'shish</button>
+      </form>
+      <ul class="mt-6">
+        <li v-for="(task, index) in tasks" :key="index"  class="flex justify-between items-center border">
+          <button 
+          @click="completedTask(task)"
+          :class="task.completed ? 'bg-green-300 line-through' : '' "
+          class="w-full bg-gray-100 flex justify-start py-2 px-4">{{ task.title }} {{ task.completed}}</button>
+          <button 
+           @click="removeTask"
+           class="bg-red-500 text-white py-2 px-4">O'chirish</button>
+        </li> 
+      </ul>
+   </div>
+</template>
+
+<script>
+
+
+export default {
+  name: 'App',
+  data() {
+    return {
+      newTask :'',
+      tasks: [
+        { 
+          title :"Learn JavaScript" ,
+          completed:false 
+        }
+        ]
+    }
+  } , 
+  methods: {
+    addTask() {
+      this.tasks.push({
+        title: this.newTask,
+        completed:false
+      })
+      this.newTask = ''
+    },
+    completedTask(task) {
+      task.completed = !task.completed
+    },
+    removeTask(index) {
+      this.tasks.splice(index ,1) ;      
+    },
+    computed :{
+      allTask(){
+        return this.tasks.length;
+      }
+    }
+  }
+}
+</script>
+
+<style>
+
+</style>
